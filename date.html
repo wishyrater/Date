@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Valentine's Day Proposal</title>
+   <style>
+      body {
+         text-align: center;
+         background-color: #f9d5e5; /* Romantic vintage background color */
+         font-family: 'Arial', sans-serif;
+         margin: 0;
+         overflow: hidden;
+      }
+
+      #valentine-container {
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         height: 100vh;
+      }
+
+      #content-container {
+         margin-bottom: 20px;
+      }
+
+      h1 {
+         color: #e91e63;
+         margin-top: 30px;
+      }
+
+      #valentine-image {
+         width: 300px;
+         height: auto;
+         margin-bottom: 20px;
+      }
+
+      #button-container {
+         display: flex;
+         gap: 20px;
+      }
+
+      button {
+         background-color: #4caf50;
+         color: #fff;
+         font-size: 16px;
+         padding: 10px 20px;
+         border: none;
+         border-radius: 5px;
+         cursor: pointer;
+         transition: left 0.3s ease-in-out;
+      }
+   </style>
+</head>
+<body>
+   <div id="valentine-container">
+      <div id="content-container">
+         <h1>14. februar - deg og meg?</h1>
+      </div>
+      <img id="valentine-image" src="cheems.png" alt="Valentine">
+      <div id="button-container">
+         <button id="yesButton">Yes</button>
+         <button id="noButton">No</button>
+      </div>
+   </div>
+
+   <!-- Audio elements for the sound effects -->
+   <audio id="yesSound" preload="auto" src="romance.mp3"></audio>
+   <audio id="noSound" preload="auto" src="boom.mp3"></audio>
+
+   <script>
+      document.getElementById("yesButton").addEventListener("click", function() {
+         // Play the "Yes" sound effect immediately
+         document.getElementById("yesSound").play();
+
+         // Display an alert or perform other actions as needed
+         alert("Visste du ville komme til sansene dine før eller siden! Meld meg på 92217230, jeg fikser resten ;)");
+      });
+
+      document.getElementById("noButton").addEventListener("click", function() {
+         // Play the "No" sound effect
+         document.getElementById("noSound").play();
+
+         // Move the "No" button to random coordinates
+         moveButtonRandomly();
+      });
+
+      function moveButtonRandomly() {
+         var button = document.getElementById("noButton");
+
+         // Get the dimensions of the viewport
+         var viewportWidth = window.innerWidth - button.clientWidth;
+         var viewportHeight = window.innerHeight - button.clientHeight;
+
+         // Calculate random coordinates
+         var randomX = Math.floor(Math.random() * viewportWidth);
+         var randomY = Math.floor(Math.random() * viewportHeight);
+
+         // Set the button's position
+         button.style.position = "absolute";
+         button.style.left = randomX + "px";
+         button.style.top = randomY + "px";
+      }
+   </script>
+</body>
+</html>
